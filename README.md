@@ -4,7 +4,7 @@ Collection of concerns and helpers for Rails + Mongoid + Character web developme
 
 ### Sorted Relations
 
-In Mongoid, the HM & HABTM relations return docs in the wrong order. This workaround provides an ability to retrieve related documents in the same order it was stored.
+In Mongoid, the HM & HABTM relations return docs in random order. This workaround provides an ability to retrieve related documents in the same order it was stored.
 
 Usage example:
 
