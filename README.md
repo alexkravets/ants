@@ -1,4 +1,11 @@
-# ants
+
+ants
+======
+[![GitHub version](https://badge.fury.io/gh/slate-studio%2Fants.svg)](http://badge.fury.io/gh/slate-studio%2Fants)
+[![Build Status](https://travis-ci.org/slate-studio/ants.svg)](https://travis-ci.org/slate-studio/ants)
+[![Code Climate](https://codeclimate.com/github/slate-studio/ants/badges/gpa.svg)](https://codeclimate.com/github/slate-studio/ants)
+[![Coverage Status](https://coveralls.io/repos/slate-studio/ants/badge.svg)](https://coveralls.io/r/slate-studio/ants)
+
 Collection of concerns and helpers for Rails + Mongoid + Character web development
 
 
