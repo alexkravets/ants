@@ -60,7 +60,7 @@ module Ants
           sorted_relation_ids = self.send("#{ relation.name.to_s.singularize }_ids").map { |id| id.to_s }
 
           sorted_documents = related_documents.sort_by do |document|
-            sorted_relation_ids.index(document.id.to_s)
+            sorted_relation_ids.index(document.id.to_s) || -1
           end
 
           return Mongoid::FakeCriteria.new(sorted_documents)
@@ -87,7 +87,7 @@ module Ants
 
           # missing or new ids are in random order
           sorted_documents = related_documents.sort_by do |document|
-            sorted_relation_ids.index(document.id.to_s)
+            sorted_relation_ids.index(document.id.to_s) || -1
           end
 
           return Mongoid::FakeCriteria.new(sorted_documents)
