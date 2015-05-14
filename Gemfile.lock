@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ants (0.1.0)
+    ants (0.1.1)
       mongoid (>= 4.0)
       mongoid-slug (>= 4.0.0)
 
