@@ -14,4 +14,5 @@ module Ants
   require "concerns/ants/slug"
   require "concerns/ants/publication"
   require "concerns/ants/sorted_relations"
+  require "concerns/ants/versions"
 end
