@@ -15,4 +15,6 @@ module Ants
   require "concerns/ants/publication"
   require "concerns/ants/sorted_relations"
   require "concerns/ants/versions"
+
+  require "constraints/redirects"
 end
