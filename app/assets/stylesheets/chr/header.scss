@@ -1,0 +1,35 @@
+
+// Preview & Open view header link
+
+.header {
+  .link {
+    @include header-button($positiveColor);
+    @include position(absolute, 0 1em null null);
+
+    &.open { right : 4em; }
+  }
+}
+
+// List header CSV button
+
+.header {
+  .csv + .search { @include position(absolute, 0 40px null null); }
+  .csv {
+    @extend .icon-base;
+    @include position(absolute, 0 0 null null);
+
+    &:after {
+      content    : 'csv';
+      width      : 100%;
+      background : transparent;
+      text-align : center;
+      margin-top : -.7em;
+      color      : $positiveColor;
+    }
+  }
+}
+
+
+.list-search .header {
+  .csv + .search { @include position(absolute, 0 0 null 0); }
+}
