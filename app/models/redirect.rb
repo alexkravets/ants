@@ -43,7 +43,7 @@ class Redirect
   def self.match(request)
     # request.fullpath includes parameters and leading / so
     # add ending slash (Rails skips it) as alternative option
-    fullpath      = request.fullpath
+    fullpath      = request.fullpath.downcase
     fullpath_alt1 = fullpath.gsub('?', '/?')
 
     # decode URL to UTF string, e.g. %C3%A9 => é

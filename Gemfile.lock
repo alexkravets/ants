@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ants (0.1.1)
+    ants (0.1.5)
       mongoid (>= 4.0)
       mongoid-slug (>= 4.0.0)
 
@@ -44,7 +44,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.0)
-    bson (2.3.0)
+    bson (3.1.2)
     builder (3.2.2)
     connection_pool (2.2.0)
     coveralls (0.8.1)
@@ -79,8 +79,8 @@ GEM
     mongoid-slug (4.0.0)
       mongoid (>= 3.0)
       stringex (~> 2.0)
-    moped (2.0.4)
-      bson (~> 2.2)
+    moped (2.0.6)
+      bson (~> 3.0)
       connection_pool (~> 2.0)
       optionable (~> 0.2.0)
     netrc (0.10.3)
@@ -168,3 +168,6 @@ DEPENDENCIES
   rake (~> 10.0)
   rspec (>= 2.0)
   rspec-aspic (>= 0.0.2)
+
+BUNDLED WITH
+   1.10.4
