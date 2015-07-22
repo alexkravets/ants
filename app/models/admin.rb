@@ -7,7 +7,8 @@ class Admin
 
 
   ## Attributes
-  field :name, default: ''
+  field :name
+  field :permissions, type: Array
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :registerable, :validatable and :omniauthable
@@ -44,22 +45,28 @@ class Admin
 
 
   ## Validations
-  validates :name, presence: true
+  validates :name,     presence: true
+  validates :email,    presence: true, allow_blank: false, uniqueness: true
+  validates :password, presence: true, allow_blank: false
 
 
   ## Search
   search_in :name, :email
-
 
   ## Scopes
   default_scope -> { asc(:name) }
 
 
   ## Indexes
-  index({ name: 1 })
+  index({ name:  1 })
+  index({ email: 1 }, { unique: true })
 
 
-  # HELPERS
+  ## Callbacks
+  before_validation :downcase_email!
+
+
+  ## Helpers
   def devise_mailer
     AdminMailer
   end
@@ -87,6 +94,14 @@ class Admin
   def _list_item_thumbnail
     "http://www.gravatar.com/avatar/#{ Digest::MD5.hexdigest(email) }?s=80&d=retro&r=g"
   end
+
+
+  private
+
+    def downcase_email!
+      self.email = self.email.try(:downcase)
+      return true
+    end
 
 
 end
