@@ -17,7 +17,12 @@ Ants.adminsConfig = ->
       label:       """Name <small>— to update or add avatar, please register on
                       <a href='http://gravatar.com' target='_blank'>Gravatar</a>
                       using same email address</small>"""
-      placeholder: 'Users full name'
+      placeholder: 'Full name'
+      onInitialize: (input) ->
+        if input.object
+          input.$el.removeClass 'input-required'
+          input.config.disabled = true
+          input._add_disabled()
 
     email:
       type:     'string'
