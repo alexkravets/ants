@@ -1,3 +1,11 @@
+# -------------------------------------------------------------------
+# Make sure /config/initializers/device.rb includes :email like:
+#
+# config.case_insensitive_keys = [ :email ]
+#
+# This is required to make it possible for users login with case
+# insensative emails.
+# -------------------------------------------------------------------
 class Admin
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -45,8 +53,8 @@ class Admin
 
 
   ## Validations
-  validates :name,     presence: true
-  validates :email,    presence: true, allow_blank: false, uniqueness: true
+  validates :name,  presence: true
+  validates :email, presence: true, allow_blank: false, uniqueness: true
 
 
   ## Search
@@ -61,10 +69,6 @@ class Admin
   index({ email: 1 }, { unique: true })
 
 
-  ## Callbacks
-  before_validation :downcase_email!
-
-
   ## Helpers
   def devise_mailer
     AdminMailer
@@ -73,9 +77,9 @@ class Admin
 
   def last_sign_in_ago
     if last_sign_in_at
-      'seen ' + ActionController::Base.helpers.time_ago_in_words(last_sign_in_at) + ' ago'
+      'Seen ' + ActionController::Base.helpers.time_ago_in_words(last_sign_in_at) + ' ago'
     else
-      'never seen'
+      'Never seen'
     end
   end
 
@@ -93,15 +97,6 @@ class Admin
   def _list_item_thumbnail
     "http://www.gravatar.com/avatar/#{ Digest::MD5.hexdigest(email) }?s=80&d=retro&r=g"
   end
-
-
-  private
-
-    def downcase_email!
-      self.email = self.email.try(:downcase)
-      return true
-    end
-
 
 end
 
