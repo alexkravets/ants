@@ -47,7 +47,6 @@ class Admin
   ## Validations
   validates :name,     presence: true
   validates :email,    presence: true, allow_blank: false, uniqueness: true
-  validates :password, presence: true, allow_blank: false
 
 
   ## Search
