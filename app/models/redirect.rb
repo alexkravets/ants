@@ -25,7 +25,7 @@ class Redirect
 
 
   ## Callbacks
-  after_validation :downcase_paths!
+  after_validation :downcase_from_path!
 
 
   ## Helpers
@@ -35,7 +35,7 @@ class Redirect
 
 
   def _list_item_subtitle
-    'created ' + ActionController::Base.helpers.time_ago_in_words(created_at) + ' ago'
+    'Created ' + ActionController::Base.helpers.time_ago_in_words(created_at) + ' ago'
   end
 
 
@@ -56,9 +56,8 @@ class Redirect
 
   private
 
-    def downcase_paths!
+    def downcase_from_path!
       self.path_from.downcase!
-      self.path_to.downcase!
 
       return true
     end
