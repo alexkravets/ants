@@ -1,5 +1,6 @@
 require 'mongoid'
 require 'mongoid_slug'
+require 'devise'
 
 module Ants
   require 'ants/engine'

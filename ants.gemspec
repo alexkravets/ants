@@ -22,6 +22,7 @@ Collection of concerns and helpers for Rails + Mongoid + Character web developme
 
   s.add_dependency('mongoid',      '>= 4.0'  )
   s.add_dependency('mongoid-slug', '>= 4.0.0')
+  s.add_dependency('devise')
 
   s.add_development_dependency('rails',       [ '>= 4.2'   ])
   s.add_development_dependency('rspec',       [ '>= 2.0'   ])
@@ -30,5 +31,4 @@ Collection of concerns and helpers for Rails + Mongoid + Character web developme
 
   s.add_development_dependency('bundler', '~> 1.9')
   s.add_development_dependency('rake',    '~> 10.0')
-
 end

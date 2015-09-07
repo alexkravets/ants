@@ -1,7 +1,6 @@
 class Redirect
   include Mongoid::Document
   include Mongoid::Timestamps
-
   include Mongoid::Search
   include Ants::Id
 
