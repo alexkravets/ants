@@ -3,8 +3,8 @@
 
 .header {
   .link {
-    @include header-button($positiveColor);
     @include position(absolute, 0 1em null null);
+    color : $positive-color;
 
     &.open { right : 4em; }
   }
@@ -13,22 +13,22 @@
 // List header CSV button
 
 .header {
-  .csv + .search { @include position(absolute, 0 40px null null); }
+  .csv + .search { right : 40px; }
   .csv {
-    @extend .icon-base;
     @include position(absolute, 0 0 null null);
+    display : block;
+    width   : 40px;
+    height  : 40px;
 
     &:after {
       content    : 'csv';
       width      : 100%;
-      background : transparent;
       text-align : center;
       margin-top : -.7em;
-      color      : $positiveColor;
+      color      : $positive-color;
     }
   }
 }
-
 
 .list-search .header {
   .csv + .search { @include position(absolute, 0 0 null 0); }
