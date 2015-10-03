@@ -65,7 +65,7 @@ class Admin
 
 
   def _list_item_thumbnail
-    "http://www.gravatar.com/avatar/#{ Digest::MD5.hexdigest(email) }?s=80&d=retro&r=g"
+    "//www.gravatar.com/avatar/#{ Digest::MD5.hexdigest(email) }?s=80&d=retro&r=g"
   end
 
 
