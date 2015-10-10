@@ -1,2 +1,1 @@
-#= require chr/admins
-#= require chr/redirects
+#= require_tree ./ants
