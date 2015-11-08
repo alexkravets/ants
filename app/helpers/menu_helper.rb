@@ -1,6 +1,6 @@
 module MenuHelper
   def menu(name)
-    menu = Menu.find_by(name: name)
+    menu = Menu.find_or_create_by(name: name)
     html = ''
 
     menu.links.each do |l|
