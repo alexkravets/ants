@@ -11,7 +11,12 @@ class Admin
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :registerable and :omniauthable
-  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable,
+         :recoverable,
+         :rememberable,
+         :trackable,
+         :validatable,
+         :authentication_keys => [:email]
 
   ## Database authenticatable
   field :email,              type: String, default: ""
@@ -72,8 +77,8 @@ class Admin
   private
 
     def last_sign_in_ago
-      if last_sign_in_at
-        'Seen ' + ActionController::Base.helpers.time_ago_in_words(last_sign_in_at) + ' ago'
+      if current_sign_in_at
+        'Seen ' + ActionController::Base.helpers.time_ago_in_words(current_sign_in_at) + ' ago'
       else
         'Never seen'
       end
