@@ -1,4 +1,4 @@
-class @AntsAdmins
+class @AntsAdminUsers
   constructor: (title='Admins', apiPath='/admin') ->
     config =
       title: title
@@ -6,7 +6,7 @@ class @AntsAdmins
 
       arrayStore: new RailsArrayStore({
         resource:    'admin'
-        path:        "#{ apiPath }/admins"
+        path:        "#{ apiPath }/admin_users"
         sortBy:      'name'
         searchable:  true
       })
@@ -47,7 +47,7 @@ class @AntsAdmins
             if input.object
               input.$el.removeClass 'input-required'
               input.$label.html 'Change Password'
-              input.config.placeholder = 'Type new password here to update the current one'
+              input.config.placeholder = 'Type new password & hit Save'
               input._add_placeholder()
 
     return config
