@@ -5,17 +5,17 @@ class @AntsAdminUsers
       showWithParent: true
 
       arrayStore: new RailsArrayStore({
-        resource:    'admin'
-        path:        "#{ apiPath }/admin_users"
-        sortBy:      'name'
+        resource: 'admin_user'
+        path: "#{ apiPath }/admin_users"
+        sortBy: 'name'
         searchable:  true
       })
 
       formSchema:
         name:
-          type:        'string'
-          required:    true
-          label:       "Name"
+          type: 'string'
+          required: true
+          label: "Name"
           placeholder: 'Full name'
           onInitialize: (input) ->
             if input.object
@@ -24,8 +24,8 @@ class @AntsAdminUsers
               input._add_disabled()
 
         email:
-          type:        'string'
-          required:    true
+          type: 'string'
+          required: true
           placeholder: 'Email'
 
           onInitialize: (input) ->
@@ -40,8 +40,8 @@ class @AntsAdminUsers
               input.$actions.append input.$avatarBtn
 
         password:
-          type:        'password'
-          required:    true
+          type: 'password'
+          required: true
           placeholder: 'Password'
           onInitialize: (input) ->
             if input.object
