@@ -1,0 +1,9 @@
+<div class="sidebar-profile" style="display:none;">
+  <%= image_tag current_admin._list_item_thumbnail %>
+
+  <% name = (current_admin.name.presence || "").strip.split(' ').first %>
+  <% path = "#/settings/admins/view/#{current_admin.id}" %>
+  <%= link_to name, path %>
+
+  <%= link_to "Sign out", destroy_admin_session_path, method: :delete %>
+</div>

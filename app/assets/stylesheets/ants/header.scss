@@ -1,6 +1,4 @@
-
 // Preview & Open view header link
-
 .header {
   .link {
     @include position(absolute, 0 1em null null);
@@ -11,7 +9,6 @@
 }
 
 // List header CSV button
-
 .header {
   .csv + .search { right : 40px; }
   .csv {

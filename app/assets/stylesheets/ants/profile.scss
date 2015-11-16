@@ -1,0 +1,21 @@
+.sidebar-profile {
+  @include position(relative);
+  background-color: $sidebar-active-bg-color;
+  font-size: .75em;
+  padding: 10px 5px 10px 50px;
+
+  img {
+    @include position(absolute, 8px null null 0px);
+    border-radius: 16px;
+    margin-left: 10px;
+    width: 32px;
+  }
+
+  a {
+    display: block;
+    color: rgba(255,255,255, .5);
+    &:hover {
+      color: white;
+    }
+  }
+}
