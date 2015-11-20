@@ -1,8 +1,8 @@
 .sidebar-profile {
   @include position(relative);
   background-color: $sidebar-active-bg-color;
-  font-size: .75em;
   padding: 10px 5px 10px 50px;
+  line-height: 1.75;
 
   img {
     @include position(absolute, 8px null null 0px);
@@ -12,10 +12,28 @@
   }
 
   a {
-    display: block;
-    color: rgba(255,255,255, .5);
+    color: $sidebar-color;
     &:hover {
-      color: white;
+      color: $white-color;
     }
+  }
+
+  a:last-child {
+    @include position(absolute, null 1em null null);
+  }
+}
+
+/* Tablet ------------------------------------------------------------------ */
+@media #{$tablet} {
+  .sidebar-profile {
+    line-height: 1.2;
+    font-size: .75em;
+  }
+  .sidebar-profile a {
+    display: block;
+  }
+  .sidebar-profile a:last-child {
+    position: relative;
+    right: 0;
   }
 }
