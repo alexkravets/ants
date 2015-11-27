@@ -3,7 +3,7 @@ class @AntsSlugInput
     config =
       type: 'string'
       name: '_slug'
-      label: 'Permalink'
+      label: 'Slug'
       placeholder: ''
       onInitialize: (input) ->
         if input.object && input.object._slugs.length
