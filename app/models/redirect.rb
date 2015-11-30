@@ -4,7 +4,6 @@ class Redirect
   include Mongoid::Search
   include Ants::Id
 
-
   ## Attributes
   field :path_from, type: String
   field :path_to,   type: String
@@ -22,21 +21,17 @@ class Redirect
   ## Indexes
   index({ path_from: 1 })
 
-
   ## Callbacks
   after_validation :downcase_from_path!
 
-
   ## Helpers
   def _list_item_title
-    path_from
+    "#{path_from} → #{path_to}"
   end
 
-
-  def _list_item_subtitle
-    'Created ' + ActionController::Base.helpers.time_ago_in_words(created_at) + ' ago'
-  end
-
+  # def _list_item_subtitle
+  #   'Created ' + ActionController::Base.helpers.time_ago_in_words(created_at) + ' ago'
+  # end
 
   ## Class Methods
   def self.match(request)
@@ -52,18 +47,11 @@ class Redirect
     self.where(:path_from.in => [ fullpath, fullpath_alt1, fullpath_alt2, fullpath_alt3 ]).first
   end
 
-
   private
 
-    def downcase_from_path!
-      self.path_from.downcase!
+  def downcase_from_path!
+    self.path_from.downcase!
 
-      return true
-    end
-
-
+    return true
+  end
 end
-
-
-
-

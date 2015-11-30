@@ -17,7 +17,11 @@ class @AntsRedirects
       })
 
       formSchema:
-        path_from: { type: 'string', label: 'From', placeholder: '/redirect-from-path', required: true }
-        path_to:   { type: 'url',    label: 'To',   placeholder: '/redirect-to-path',   required: true }
+        group:
+          type: 'group'
+          groupClass: 'group-panel'
+          inputs:
+            path_from: { type: 'string', label: 'From', placeholder: '/redirect-from-path', required: true }
+            path_to:   { type: 'url',    label: 'To',   placeholder: '/redirect-to-path',   required: true }
 
     return config

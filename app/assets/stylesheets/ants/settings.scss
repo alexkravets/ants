@@ -1,0 +1,8 @@
+.view-settings {
+  .input-hash.input-values {
+    padding: 0;
+    & > .label {
+      display: none;
+    }
+  }
+}
