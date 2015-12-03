@@ -24,16 +24,14 @@ module Ants
       slug :title
 
       ## Helpers
-      def _list_item_title
-        title
-      end
+      alias_attribute :_list_item_title, :title
 
       def canonical_url
         "#{protocole}#{host}/#{slug}"
       end
 
       def meta_type
-        'article'
+        "article"
       end
 
       def meta_title
@@ -41,7 +39,7 @@ module Ants
       end
 
       def meta_description
-        _meta_description.presence || excerpt_text
+        _meta_description.presence
       end
 
       def meta_keywords
@@ -57,7 +55,7 @@ module Ants
             url
           end
         else
-          ''
+          ""
         end
       end
 
@@ -69,14 +67,6 @@ module Ants
 
       def protocole
         @protocole ||= Rails.application.config.force_ssl ? "https://" : "http://"
-      end
-
-      private
-
-      def excerpt_text
-        ActionController::Base.helpers.strip_tags(excerpt_html).
-          gsub("\n", "").
-          gsub("\r", "") # ADD LIMIT HERE WITH TRUNCATION
       end
     end
   end
