@@ -6,17 +6,19 @@
 #            > ModelClass.all.set(_position: 1000)
 # =============================================================================
 module Ants
-  module Orderable
+  module OrderableReverse
     extend ActiveSupport::Concern
     included do
       ## Attributes
-      field :_position, type: Float, default: -> { (self.class.all.last.try(:_position) || 1000) + 10 }
+      field :_position, type: Float, default: -> {
+        (self.class.all.first.try(:_position) || 1000) + 10
+      }
 
       ## Scopes
-      default_scope -> { order_by(_position: :asc) }
+      default_scope -> { desc(:_position) }
 
       ## Indexes
-      index({ _position: 1 })
+      index({ _position: -1 })
     end
   end
 end

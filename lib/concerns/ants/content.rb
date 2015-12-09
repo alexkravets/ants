@@ -49,7 +49,7 @@ module Ants
       def opengraph_image_url
         url = _opengraph_image_url.presence
         if url
-          if !url.include?('//')
+          if !url.include?('//') && Rails.env.production?
             "#{protocole}#{host}#{url}"
           else
             url

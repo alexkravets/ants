@@ -1,0 +1,87 @@
+.group-content-settings {
+  .input-_opengraph_image_url {
+    width: 14em;
+    height: 14em;
+    background: black;
+  }
+}
+
+.group-content-editor {
+  @include position(relative);
+  min-height: 16em;
+  background-color: $white-color;
+
+  .input-_slug {
+    @include no-bottom-border;
+    padding-bottom: 0;
+  }
+
+  .input-title {
+    @include no-bottom-border;
+    padding-bottom: 0;
+    padding-right: 4.5em;
+    font-weight: $medium;
+
+    &.error:after {
+      background-color: $assertive-color;
+    }
+  }
+
+  .input-title,
+  .input-body_markdown {
+    padding-top: 1em;
+
+    .label {
+      display: none;
+    }
+  }
+
+  .input-_slug {
+    padding-top: 0;
+    opacity: 0.5;
+
+    .label {
+      display: inline-block;
+      font-size: .8em;
+      cursor: pointer;
+    }
+
+    .error-message {
+      display: none;
+    }
+
+    input {
+      display: inline-block;
+      width: 18em;
+      font-size: .8em;
+      padding: 0;
+    }
+  }
+}
+
+.view-new .group-content-editor-actions {
+  display: none;
+}
+
+.content-delete {
+  i { @include position(relative, -1px null null null); }
+  &:hover { color: $assertive-color; }
+}
+
+.group-content-editor-actions {
+  @include position(absolute, 0.5em 0.5em null null);
+  z-index: 1;
+
+  a {
+    display: inline-block;
+    float: right;
+    width: 2em;
+    height: 2em;
+    line-height: 2;
+    text-align: center;
+    color: $base-font-color;
+    opacity: 0.25;
+
+    &:hover { opacity: 0.75; }
+  }
+}

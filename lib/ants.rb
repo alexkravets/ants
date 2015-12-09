@@ -11,6 +11,7 @@ module Ants
   require "concerns/ants/featurable"
   require "concerns/ants/hideable"
   require "concerns/ants/orderable"
+  require "concerns/ants/orderable_reverse"
   require "concerns/ants/meta"
   require "concerns/ants/slug"
   require "concerns/ants/publication"
