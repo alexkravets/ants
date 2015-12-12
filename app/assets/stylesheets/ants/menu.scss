@@ -31,8 +31,7 @@
       right: 1.1em;
 
       a {
-        @include position(relative, -2.4em null null null);
-        font-size: initial;
+        @include position(relative, 0.75em -2.8em null null);
         color: $secondary-font-color;
 
         &:hover { color: $base-font-color; }
