@@ -6,3 +6,42 @@
     }
   }
 }
+
+.view-menu {
+  .nested-forms {
+    padding-top: 1.5em;
+
+    &> .label {
+      display: none;
+    }
+  }
+
+  .input-title {
+    padding: 0.75em 1em 0.75em;
+
+    .label {
+      display: none;
+    }
+    input {
+      font-weight: $medium;
+    }
+  }
+
+  .input-url {
+    padding: .65em 1em 0.75em;
+
+    .label-title { display: none; }
+    .label { height: 0; }
+
+    .input-actions {
+      top: 0.6em;
+      right: 1.1em;
+    }
+
+    input {
+      font-size: 0.9em;
+      padding-right: 5em;
+      opacity: 0.75;
+    }
+  }
+}

@@ -4,8 +4,8 @@ module MenuHelper
     html = ''
 
     menu.links.each do |l|
-      if l.target_blank
-        html << link_to(l.title, l.url, _target: '_blank')
+      if l.new_tab?
+        html << link_to(l.title, l.url, target: '_blank')
 
       else
         html << link_to(l.title, l.url)
