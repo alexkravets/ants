@@ -4,6 +4,7 @@ require 'devise'
 
 module Ants
   require 'ants/engine'
+  require 'ants/routing'
 
   require "mongoid/fake_criteria"
 
