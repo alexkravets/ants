@@ -11,11 +11,6 @@ class @AntsMenu
         sortBy: '_position'
         label: false
         formSchema:
-          # force_new_tab:
-          #   type: 'checkbox'
-          #   default: false
-          #   label: 'Open in a new tab'
-
           title:
             type: "string"
             placeholder: "Title"
@@ -23,6 +18,21 @@ class @AntsMenu
           url:
             type: "url"
             placeholder: "Path or URL, e.g. /about"
+            onInitialize: (input) =>
+              @_add_preview_action(input)
 
     @onViewShow = (view) ->
       view.$el.addClass "view-menu"
+
+  _add_preview_action: (input) ->
+    input.$actions =$ "<span class='input-actions'></span>"
+    input.$el.append input.$actions
+
+    input.$previewBtn =$ """<a href='#{input.value}' target='_blank'>
+                              #{Icons.preview}
+                            </a>"""
+    input.$actions.append input.$previewBtn
+
+    input.$input.on "change", (e) ->
+      link = input.$input.val()
+      input.$previewBtn.attr "href", link
