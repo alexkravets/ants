@@ -1,24 +1,21 @@
 module Ants
   module Featurable
     extend ActiveSupport::Concern
-
     included do
-      # attributes
+      ## Attributes
       field :featured, type: Boolean, default: false
 
-      # scopes
+      ## Scopes
       scope :featured,     -> { where(featured: true) }
       scope :not_featured, -> { where(featured: false) }
 
-      # indexes
+      ## Indexes
       index({ featured: 1 })
 
-
-      # helpers
+      ## Helpers
       def featured?
         self.featured
       end
-
 
       def set_featured!
         return if self.featured?
@@ -26,18 +23,11 @@ module Ants
         self.save!
       end
 
-
       def unset_featured!
         return unless self.featured?
         self.featured = false
         self.save!
       end
-
-
     end
   end
 end
-
-
-
-

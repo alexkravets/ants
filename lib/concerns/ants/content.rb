@@ -1,7 +1,6 @@
 module Ants
   module Content
     extend ActiveSupport::Concern
-
     included do
       include Mongoid::Document
       include Mongoid::Timestamps
@@ -10,6 +9,7 @@ module Ants
       include Ants::Slug
       include Ants::Hideable
       include Ants::Meta
+      include Ants::Scheduled
 
       ## Attributes
       field :title
