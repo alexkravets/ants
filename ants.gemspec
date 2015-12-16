@@ -31,4 +31,7 @@ Collection of concerns and helpers for Rails + Mongoid + Character web developme
 
   s.add_development_dependency('bundler', '~> 1.9')
   s.add_development_dependency('rake',    '~> 10.0')
+
+  s.add_development_dependency 'capybara-webkit'
+  s.add_development_dependency 'minitest-rails-capybara'
 end
