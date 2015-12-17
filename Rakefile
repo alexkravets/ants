@@ -1,6 +1,7 @@
 # encoding: utf-8
 require "rubygems"
 require "bundler"
+require 'rake/testtask'
 
 begin
   Bundler.setup(:default, :development)
@@ -12,8 +13,10 @@ end
 
 Bundler::GemHelper.install_tasks
 
-require 'rspec/core'
-require 'rspec/core/rake_task'
-task :default => :spec
-
-RSpec::Core::RakeTask.new
+Rake::TestTask.new(:test) do |t|
+  t.libs << 'lib'
+  t.libs << 'test'
+  t.pattern = 'test/**/*_test.rb'
+  t.verbose = true
+  t.warning = false
+end
