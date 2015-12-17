@@ -37,3 +37,5 @@ bower.json
 .DS_Store
 
 pkg/
+test/rails_app/tmp
+test/rails_app/log
