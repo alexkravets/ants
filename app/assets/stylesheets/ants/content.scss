@@ -1,8 +1,19 @@
 .group-content-settings {
-  .input-_opengraph_image_url {
-    width: 14em;
-    height: 14em;
-    background: black;
+  .sharing_panel {
+    @include position(relative);
+  }
+  .input-_meta_title {
+    @include no-bottom-border;
+    padding: 0.75em 1em 0 6.25em;
+    .label { display: none; }
+    input { font-weight: $medium; }
+  }
+  .input-_meta_description {
+    @include no-bottom-border;
+    min-height: 63px;
+    padding: 0.25em 1em 1em 6.25em;
+    .label { display: none; }
+    textarea { font-size: 0.9em; }
   }
 }
 
@@ -83,5 +94,20 @@
     opacity: 0.25;
 
     &:hover { opacity: 0.75; }
+  }
+}
+
+/* Tablet ------------------------------------------------------------------ */
+@media #{$tablet} {
+  .group-content-settings {
+    .sharing_panel {
+      min-height: 17.8em;
+    }
+    .input-_meta_title {
+      padding-left: 15.25em;
+    }
+    .input-_meta_description {
+      padding-left: 15.25em;
+    }
   }
 }

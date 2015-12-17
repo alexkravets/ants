@@ -27,6 +27,13 @@ class @AntsContent
         type: "group"
         groupClass: "group-content-settings"
         inputs:
+          sharing_panel:
+            type: "group"
+            groupClass: "group-panel"
+            title: "Sharing"
+            inputs:
+              @_meta_inputs()
+
           general_panel:
             type: "group"
             groupClass: "group-panel group-content-settings"
@@ -36,12 +43,6 @@ class @AntsContent
                 label: "Draft"
                 default: true
 
-          sharing_panel:
-            type: "group"
-            groupClass: "group-panel"
-            title: "Sharing"
-            inputs:
-              @_meta_inputs()
 
     @onEditShow = (view) =>
       @_update_slug_label(view)
@@ -50,7 +51,7 @@ class @AntsContent
       @_update_slug_label(view)
       @_update_preview_href(view.form)
 
-# PRIVATE ====================================================================
+  # PRIVATE ===================================================================
 
   _update_slug_label: (view) ->
     if @_path
@@ -93,6 +94,7 @@ class @AntsContent
       name: '_opengraph_image_url'
       type: 'loft-image'
       label: 'Image'
+      fullsizePreview: true
 
     meta_title:
       name: "_meta_title"
@@ -104,4 +106,4 @@ class @AntsContent
       name: "_meta_description"
       type: "text"
       label: false
-      placeholder: "Description"
+      placeholder: "Content summary"
