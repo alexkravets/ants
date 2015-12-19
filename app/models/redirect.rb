@@ -50,7 +50,7 @@ class Redirect
   private
 
   def downcase_from_path!
-    self.path_from.downcase!
+    path_from.strip!.downcase!
 
     return true
   end
