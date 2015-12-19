@@ -1,8 +1,9 @@
 PATH
   remote: .
   specs:
-    ants (0.3.9)
+    ants (0.3.10)
       devise
+      meta-tags
       mongoid (>= 4.0)
       mongoid-slug (>= 4.0.0)
 
@@ -76,10 +77,12 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    meta-tags (2.1.0)
+      actionpack (>= 3.0.0)
     mime-types (2.6.1)
     mini_portile (0.6.2)
     minitest (5.8.0)
-    mongo (2.2.0)
+    mongo (2.2.1)
       bson (~> 4.0)
     mongoid (5.0.1)
       activemodel (~> 4.0)
