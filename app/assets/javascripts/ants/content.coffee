@@ -27,13 +27,6 @@ class @AntsContent
         type: "group"
         groupClass: "group-content-settings"
         inputs:
-          sharing_panel:
-            type: "group"
-            groupClass: "group-panel"
-            title: "Sharing"
-            inputs:
-              @_meta_inputs()
-
           general_panel:
             type: "group"
             groupClass: "group-panel group-content-settings"
@@ -43,6 +36,12 @@ class @AntsContent
                 label: "Draft"
                 default: true
 
+          sharing_panel:
+            type: "group"
+            groupClass: "group-panel"
+            title: "Sharing"
+            inputs:
+              @_meta_inputs()
 
     @onEditShow = (view) =>
       @_update_slug_label(view)
