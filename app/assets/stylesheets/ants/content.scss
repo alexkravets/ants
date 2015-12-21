@@ -19,7 +19,6 @@
 
 .group-content-editor {
   @include position(relative);
-  min-height: 16em;
   background-color: $white-color;
 
   .input-_slug {
@@ -67,6 +66,33 @@
       font-size: .8em;
       padding: 0;
     }
+  }
+
+  .publish { display: none; }
+  .unpublish { display: block; }
+}
+
+.view-content-draft .group-content-editor {
+  .publish { display: block; }
+  .unpublish { display: none; }
+}
+
+.group-content-editor-panel {
+  @include position(relative, -1px null null null);
+  background-color: $white-color;
+  height: 2.5em;
+  border-top: 2px solid $bg-color;
+
+  button {
+    float: right;
+    font-size: 0.8em;
+    margin: 0.5em 0.6em 0;
+  }
+
+  .unpublish {
+    border-color: $border-color;
+    color: $secondary-font-color;
+    float: left;
   }
 }
 
