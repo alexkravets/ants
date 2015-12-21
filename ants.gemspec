@@ -30,4 +30,5 @@ Collection of concerns and helpers for Rails + Mongoid + Character web developme
 
   s.add_development_dependency('capybara-webkit')
   s.add_development_dependency('minitest-rails-capybara')
+  s.add_development_dependency('database_cleaner')
 end
