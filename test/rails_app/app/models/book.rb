@@ -3,6 +3,8 @@ class Book
   include Ants::SortedRelations
   include Ants::Slug
   include Ants::Scheduled
+  include Ants::Meta
+  include Ants::Hideable
 
   # attributes
   field :title
