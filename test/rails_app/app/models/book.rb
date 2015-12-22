@@ -5,6 +5,7 @@ class Book
   include Ants::Scheduled
   include Ants::Meta
   include Ants::Hideable
+  include Ants::Featurable
 
   # attributes
   field :title
