@@ -2,11 +2,12 @@ class Book
   include Mongoid::Document
   include Ants::SortedRelations
   include Ants::Slug
+  include Ants::Scheduled
 
   # attributes
   field :title
 
-  slug :title, history: true
+  slug :title
 
   # relations
   has_many :chapters

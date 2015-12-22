@@ -20,6 +20,8 @@ DatabaseCleaner.clean_with(:truncation)
 
 class ActiveSupport::TestCase
   def setup
-    DatabaseCleaner.clean
+    Author.destroy_all
+    Book.destroy_all
+    DatabaseCleaner.clean_with(:truncation)
   end
 end

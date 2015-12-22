@@ -8,7 +8,7 @@ class Author
 
   field :_slug, default: ''
   
-  slug :name, history: true
+  slug :name
 
   # relations
   has_and_belongs_to_many :books
