@@ -6,6 +6,8 @@ require 'rails/test_help'
 require 'database_cleaner'
 require 'minitest/rails/capybara'
 require 'mongoid'
+require 'mongoid-history'
+require 'mongoid_search'
 require File.expand_path('../../lib/ants', __FILE__)
 
 

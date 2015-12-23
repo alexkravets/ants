@@ -22,6 +22,8 @@ Collection of concerns and helpers for Rails + Mongoid + Character web developme
 
   s.add_dependency('mongoid',      '>= 4.0'  )
   s.add_dependency('mongoid-slug', '>= 4.0.0')
+  s.add_dependency('mongoid-history')
+  s.add_dependency('mongoid_search')
   s.add_dependency('devise')
 
   s.add_development_dependency('rails',       [ '>= 4.2'   ])

@@ -1,12 +1,9 @@
 class Book
   include Mongoid::Document
   include Ants::SortedRelations
-  include Ants::Slug
-  include Ants::Scheduled
-  include Ants::Meta
-  include Ants::Hideable
   include Ants::Featurable
   include Ants::Orderable
+  include Ants::Content
 
   # attributes
   field :title
