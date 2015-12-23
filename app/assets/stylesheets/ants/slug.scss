@@ -4,8 +4,8 @@
   padding-right: 1.25em;
 
   .label {
-    display: inline-block;
     cursor: pointer;
+    display: inline-block;
   }
 
   .error-message {
@@ -14,7 +14,7 @@
 
   input {
     display: inline-block;
-    width: 18em;
     padding: 0;
+    width: 18em;
   }
 }
