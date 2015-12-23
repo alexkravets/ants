@@ -1,0 +1,20 @@
+.input-_slug {
+  font-size: 0.8em;
+  padding-left: 1.25em;
+  padding-right: 1.25em;
+
+  .label {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .error-message {
+    display: none;
+  }
+
+  input {
+    display: inline-block;
+    width: 18em;
+    padding: 0;
+  }
+}
