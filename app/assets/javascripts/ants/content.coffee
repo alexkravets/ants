@@ -17,11 +17,11 @@ class @AntsContent
             type: "string"
             placeholder: "#{@resourceName} Title"
           slug: new AntsSlugInput("#{location.origin}/")
+          body_html:
+            type: "hidden"
           body_markdown:
             type: "markdown"
-            label: "Content"
-            htmlFieldName: "body_html"
-            placeholder: "Content"
+            getHtmlInput: -> chr.module.view.form.inputs.body_html
 
       settings:
         type: "group"
@@ -43,7 +43,11 @@ class @AntsContent
             inputs:
               @_meta_inputs()
 
+    @onNewShow = (view) =>
+      view.form.inputs.title.$input.focus()
+
     @onEditShow = (view) =>
+      view.form.inputs.body_markdown.editor.focus()
       @_update_slug_label(view)
 
     @onSaveSuccess = (view) =>
