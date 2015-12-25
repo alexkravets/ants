@@ -1,5 +1,6 @@
 require 'mongoid'
 require 'mongoid_slug'
+require 'mongoid_search'
 require 'devise'
 
 module Ants

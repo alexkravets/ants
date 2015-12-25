@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class HideableTest < Capybara::Rails::TestCase
+class HideableTest < ActiveSupport::TestCase
   test 'scope hidden, not_hidden should return proper objects' do
     hidden_book = Book.create(title: 'The Art of War', hidden: true)
     not_hidden_book = Book.create(title: 'Alphabetic writing', hidden: false)
