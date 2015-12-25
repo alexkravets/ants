@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ants (0.3.13)
+    ants (0.3.14)
       devise
       meta-tags
       mongoid (>= 4.0)
@@ -84,7 +84,7 @@ GEM
     minitest (5.8.0)
     mongo (2.2.1)
       bson (~> 4.0)
-    mongoid (5.0.1)
+    mongoid (5.0.2)
       activemodel (~> 4.0)
       mongo (~> 2.1)
       origin (~> 2.1)
