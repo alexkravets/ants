@@ -10,7 +10,7 @@ require "mongoid"
 
 # DatabaseCleaner
 DatabaseCleaner.strategy = :truncation
-DatabaseCleaner[:mongo_mapper].strategy = :truncation
+DatabaseCleaner.clean_with(:truncation)
 
 class ActiveSupport::TestCase
   def setup
