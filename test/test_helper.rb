@@ -10,6 +10,7 @@ require "mongoid"
 
 # DatabaseCleaner
 DatabaseCleaner.strategy = :truncation
+DatabaseCleaner[:mongo_mapper].strategy = :truncation
 
 class ActiveSupport::TestCase
   def setup
@@ -17,8 +18,6 @@ class ActiveSupport::TestCase
   end
 
   def teardown
-    Author.destroy_all
-    Book.destroy_all
-    Chapter.destroy_all
+    DatabaseCleaner.clean
   end
 end
