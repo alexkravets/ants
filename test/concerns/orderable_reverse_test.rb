@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class OrderableReverseTest < ActiveSupport::TestCase
-  test 'should persist reverse order for concern Ants:OrderableReverse' do
+  test "Ants:OrderableReverse" do
     Author.create(name: 'Ann Gilbert')
     Author.create(name: 'Ivan Sidorov')
     Author.create(name: 'Pierik Huston')

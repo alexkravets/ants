@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class OrderableTest < ActiveSupport::TestCase
-  test 'should persist direct order for concern Ants:Orderable' do
+  test "Ants:Orderable" do
     Book.create(title: 'Papyrus')
     Book.create(title: 'Isidore of Seville')
     Book.create(title: 'Manuscripts')

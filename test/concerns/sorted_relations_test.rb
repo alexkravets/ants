@@ -12,7 +12,7 @@ class SortedRelationsTest < ActiveSupport::TestCase
     assert_equal(['Lao Zi', 'Sun Wu', 'Sun Tzu'], book.sorted_authors.map(&:name))
   end
 
-  test 'sorted_relations_for shoud persist for 1 to N relation' do 
+  test 'sorted_relations_for shoud persist for 1 to N relation' do
     book = Book.create(title: 'War and Piece')
     book.sorted_chapter_ids = [ Chapter.create(:title => 'The End').id,
                                 Chapter.create(:title => 'Part 3').id,
