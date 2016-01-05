@@ -1,8 +1,8 @@
 scss:
-  config_file: .scss-style.yml
+  config_file: config/hound/.scss-style.yml
 
 ruby:
-  config_file: .ruby-style.yml
+  config_file: config/hound/.ruby-style.yml
 
 # javascript:
 # ignore_file: .javascript_ignore
@@ -11,6 +11,6 @@ javascript:
   enabled: false
 
 coffeescript:
-  config_file: .coffeescript-style.json
+  config_file: config/hound/.coffeescript-style.json
 
 fail_on_violations: true
