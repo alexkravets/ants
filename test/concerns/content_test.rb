@@ -1,28 +1,35 @@
-require 'test_helper'
+require "test_helper"
 
 class ContentTest < ActiveSupport::TestCase
-  test 'alias _list_item_title should return title' do
-    book = Book.create(title: 'The Art of War')
-    assert_equal('The Art of War', book._list_item_title)
+  test "alias _list_item_title" do
+    book = Book.create(title: "The Art of War")
+    assert_equal("The Art of War", book._list_item_title)
   end
 
-  test 'canonical_url should look protocole+host+slug' do
-    book = Book.create(title: 'The Art of War')
+  test "#canonical_url" do
+    book = Book.create(title: "The Art of War")
     protocole = Rails.application.config.force_ssl ? "https://" : "http://"
     ENV['HOST'] = 'localhost'
     host = ENV.fetch('HOST')
     slug = book.slug
-    assert_equal("#{protocole}#{host}/#{slug}", book.canonical_url)
+    assert_equal "#{protocole}#{host}/#{slug}",
+                 book.canonical_url,
+                 "canonical_url return not protocole+host+slug:
+                  #{book.canonical_url}"
   end
 
-  test 'meta_type should be an article' do  
-    book = Book.create(title: 'The Art of War')
-    assert_equal('article', book.meta_type)
+  test "#meta_type" do
+    book = Book.create(title: "The Art of War")
+    assert_equal "article",
+                  book.meta_type,
+                  "meta_type not equal to 'article': #{book.meta_type}"
   end
 
-  test 'meta_title should return title if _meta_title is undefined' do
-    book = Book.create(title: 'The Art of War')
-    assert_equal('', book._meta_title)
-    assert_equal('The Art of War', book.meta_title)
+  test "#meta_title" do
+    book = Book.create(title: "The Art of War")
+    assert_equal "", book._meta_title, "_meta_title not empty"
+    assert_equal "The Art of War",
+                 book.meta_title,
+                 "should return title if _meta_title is undefined"
   end
 end

@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ScheduledTest < ActiveSupport::TestCase
-  test 'scheduled books should have published_at greater then now' do
+  test "Ants:Scheduled" do
     Book.create(title: 'The Art of War', published_at: Time.zone.now)
     Book.create(title: 'Alphabetic writing', published_at: Time.zone.now + 3)
 

@@ -1,29 +1,29 @@
-require 'test_helper'
+require "test_helper"
 
 class HideableTest < ActiveSupport::TestCase
-  test 'scope hidden, not_hidden should return proper objects' do
-    hidden_book = Book.create(title: 'The Art of War', hidden: true)
-    not_hidden_book = Book.create(title: 'Alphabetic writing', hidden: false)
+  test "scope hidden, not_hidden" do
+    hidden_book = Book.create(title: "The Art of War", hidden: true)
+    not_hidden_book = Book.create(title: "Alphabetic writing", hidden: false)
 
-    assert_equal(1, Book.hidden.count)
-    assert_equal(1, Book.not_hidden.count)
-    assert_equal(true, hidden_book.hidden?)
-    assert_equal(false, not_hidden_book.hidden?)
+    assert_equal 1, Book.hidden.count
+    assert_equal 1, Book.not_hidden.count
+    assert_equal true, hidden_book.hidden?, "hidden_book is not hidden"
+    assert_equal false, not_hidden_book.hidden?, "not_hidden_book is hidden"
   end
 
-  test 'hide! should set hidden to true' do
-    book = Book.create(title: 'The Art of War', hidden: false)
-    assert_equal(false, book.hidden?)
+  test "hide!" do
+    book = Book.create(title: "The Art of War", hidden: false)
+    assert_equal false, book.hidden?, "book is hidden before hide!"
 
     book.hide!
-    assert_equal(true, book.hidden?)
+    assert_equal true, book.hidden?, "book is not hidden after hide!"
   end
 
-  test 'unhide! should set hidden to false' do
-    book = Book.create(title: 'The Art of War', hidden: true)
-    assert_equal(true, book.hidden?)
+  test "unhide!" do
+    book = Book.create(title: "The Art of War", hidden: true)
+    assert_equal true, book.hidden?, "book is not hidden before unhide!"
 
     book.unhide!
-    assert_equal(false, book.hidden?)
+    assert_equal false, book.hidden?, "book is hidden after unhide!"
   end
 end
