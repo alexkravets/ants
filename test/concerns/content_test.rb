@@ -13,7 +13,7 @@ class ContentTest < ActiveSupport::TestCase
     else
       protocole = ""
     end
-    ENV['HOST'] = 'localhost'
+    ENV["HOST"] = "localhost"
     host = (Rails.env.production? ? ENV.fetch("HOST") : "")
     slug = book.slug
     assert_equal "#{protocole}#{host}/#{slug}",

@@ -4,8 +4,8 @@ class SortedRelationsTest < ActiveSupport::TestCase
   test "sorted_relations_for shoud persist for N to N relation" do
     book = Book.create(title: "The Art of War")
     book.sorted_author_ids = [Author.create(name: "Sun Tzu").id,
-                              Author.create(name: "Sun Wu" ).id,
-                              Author.create(name: "Lao Zi" ).id]
+                              Author.create(name: "Sun Wu").id,
+                              Author.create(name: "Lao Zi").id]
     book.save
     book.reload
     book.sorted_author_ids = book.author_ids.map(&:to_s).reverse
@@ -21,6 +21,7 @@ class SortedRelationsTest < ActiveSupport::TestCase
                                Chapter.create(title: "Intro").id]
     book.reload
     book.sorted_chapter_ids = book.chapter_ids.map(&:to_s).reverse
-    assert_equal(["Intro", "Part 1", "Part 2", "Part 3", "The End"], book.sorted_chapters.map(&:title))
+    assert_equal(["Intro", "Part 1", "Part 2", "Part 3", "The End"], 
+                 book.sorted_chapters.map(&:title))
   end
 end

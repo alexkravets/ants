@@ -8,11 +8,11 @@ class MetaTest < ActiveSupport::TestCase
     opengraph_image_url = "https://placehold.it/30x30"
 
     book = Book.create(title: "The Art of War",
-               published_at: Time.zone.now,
-               _meta_title: meta_title,
-               _meta_description: meta_description,
-               _meta_keywords: meta_keywords,
-               _opengraph_image_url: opengraph_image_url)
+                       published_at: Time.zone.now,
+                       _meta_title: meta_title,
+                       _meta_description: meta_description,
+                       _meta_keywords: meta_keywords,
+                       _opengraph_image_url: opengraph_image_url)
 
     assert_equal(meta_title, book.meta_title)
     assert_equal(meta_description, book.meta_description)

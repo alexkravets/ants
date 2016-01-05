@@ -23,7 +23,7 @@ DatabaseCleaner.clean_with(:truncation)
 # Minitest::Reporters
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
-class ActiveSupport
+module ActiveSupport
   class TestCase
     def setup
       DatabaseCleaner.start

@@ -6,6 +6,7 @@ class OrderableTest < ActiveSupport::TestCase
     Book.create(title: "Isidore of Seville")
     Book.create(title: "Manuscripts")
 
-    assert_equal(["Papyrus", "Isidore of Seville", "Manuscripts"], Book.all.map(&:title))
+    assert_equal(["Papyrus", "Isidore of Seville", "Manuscripts"], 
+                 Book.all.map(&:title))
   end
 end

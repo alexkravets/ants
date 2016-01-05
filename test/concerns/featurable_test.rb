@@ -2,8 +2,8 @@ require "test_helper"
 
 class FeaturableTest < ActiveSupport::TestCase
   test "#featured?" do
-    featured_book = Book.create(title: 'The Art of War', featured: true)
-    not_featured_book = Book.create(title: 'Alphabetic writing', featured: false)
+    featured_book = Book.create(title: "The Art of War", featured: true)
+    not_featured_book = Book.create(title: "Alphabetic writing", featured: false)
 
     assert_equal 1,
                  Book.featured.count,
