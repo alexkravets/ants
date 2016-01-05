@@ -1,7 +1,6 @@
 # Initialize a dummy application that is required to test
 # the gem that supplies some behavior to another rails application
 
-
 #
 # Rails
 #
@@ -30,7 +29,6 @@ end
 # Rails.application.initialize!
 TestApp::Application.initialize!
 
-
 #
 # Mongoid
 #
@@ -42,13 +40,11 @@ require "mongoid_search"
 path_to_mongoid_config = File.join(File.dirname(__FILE__), "mongoid.yml")
 Mongoid.load!(path_to_mongoid_config)
 
-
 #
 # Ants
 #
 
 require "ants"
-
 
 #
 # Models
@@ -88,20 +84,20 @@ class Author
 
   # attributes
   field :name
-  field :nickname, default: ''
+  field :nickname, default: ""
   field :genre_ids, type: Array, default: []
   field :language_id
 
-  field :_slug, default: ''
-  
+  field :_slug, default: ""
+
   slug :name
 
-  track_history class_name:     'AuthorHistoryTracker',     
-                only:           [:name],                     
-                except:         [],                          
+  track_history class_name:     "AuthorHistoryTracker",
+                only:           [:name],
+                except:         [],
                 on:             [:create, :update, :destroy],
-                changes_method: :changes,                    
-                parent:         nil,                         
+                changes_method: :changes,
+                parent:         nil,
                 inverse_of:     nil
 
   # relations
