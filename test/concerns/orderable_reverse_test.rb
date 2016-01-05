@@ -6,7 +6,7 @@ class OrderableReverseTest < ActiveSupport::TestCase
     Author.create(name: "Ivan Sidorov")
     Author.create(name: "Pierik Huston")
 
-    assert_equal(["Pierik Huston", "Ivan Sidorov", "Ann Gilbert"], 
+    assert_equal(["Pierik Huston", "Ivan Sidorov", "Ann Gilbert"],
                  Author.all.map(&:name))
   end
 end

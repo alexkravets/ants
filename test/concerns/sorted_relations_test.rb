@@ -21,7 +21,7 @@ class SortedRelationsTest < ActiveSupport::TestCase
                                Chapter.create(title: "Intro").id]
     book.reload
     book.sorted_chapter_ids = book.chapter_ids.map(&:to_s).reverse
-    assert_equal(["Intro", "Part 1", "Part 2", "Part 3", "The End"], 
+    assert_equal(["Intro", "Part 1", "Part 2", "Part 3", "The End"],
                  book.sorted_chapters.map(&:title))
   end
 end

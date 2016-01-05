@@ -1,6 +1,6 @@
 require "mongoid"
 require "mongoid_slug"
-require 'mongoid_search'
+require "mongoid_search"
 require "devise"
 require "meta-tags"
 

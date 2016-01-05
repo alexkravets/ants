@@ -25,8 +25,8 @@ class ContentTest < ActiveSupport::TestCase
   test "#meta_type" do
     book = Book.create(title: "The Art of War")
     assert_equal "article",
-                  book.meta_type,
-                  "meta_type not equal to 'article': #{book.meta_type}"
+                 book.meta_type,
+                 "meta_type not equal to 'article': #{book.meta_type}"
   end
 
   test "#meta_title" do

@@ -21,7 +21,7 @@ class SlugTest < ActiveSupport::TestCase
     assert_equal("lara-croft", author.slug)
   end
 
-  test "changed slug configuration field should use _slug if _slug is defined" do
+  test "changed slug should use _slug if _slug is defined" do
     author = Author.create(name: "Lara Croft", nickname: "Lucky")
     author._slug = "lara-croft"
     author._slugs = ["lucky"]
