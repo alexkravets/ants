@@ -1,11 +1,12 @@
-require 'mongoid'
-require 'mongoid_slug'
+require "mongoid"
+require "mongoid_slug"
 require 'mongoid_search'
-require 'devise'
+require "devise"
+require "meta-tags"
 
 module Ants
-  require 'ants/engine'
-  require 'ants/routing'
+  require "ants/engine"
+  require "ants/routing"
   require "mongoid/fake_criteria"
   require "concerns/ants/id"
   require "concerns/ants/featurable"

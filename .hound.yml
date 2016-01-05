@@ -4,11 +4,9 @@ scss:
 ruby:
   config_file: config/hound/.ruby-style.yml
 
-# javascript:
-# ignore_file: .javascript_ignore
-
 javascript:
   enabled: false
+  #ignore_file: .javascript_ignore
 
 coffeescript:
   config_file: config/hound/.coffeescript-style.json

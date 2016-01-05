@@ -49,7 +49,7 @@ module Ants
       def opengraph_image_url
         url = _opengraph_image_url.presence
         if url
-          if !url.include?('//') && Rails.env.production?
+          if !url.include?('//')
             "#{protocole}#{host}#{url}"
           else
             url
@@ -62,11 +62,15 @@ module Ants
       protected
 
       def host
-        @host ||= ENV.fetch("HOST")
+        @host ||= (Rails.env.production? ? ENV.fetch("HOST") : "")
       end
 
       def protocole
-        @protocole ||= Rails.application.config.force_ssl ? "https://" : "http://"
+        if Rails.env.production?
+          @protocole ||= Rails.application.config.force_ssl ? "https://" : "http://"
+        else
+          @protocole ||= ""
+        end
       end
     end
   end

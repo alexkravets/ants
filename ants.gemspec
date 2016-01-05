@@ -3,28 +3,26 @@ $:.push File.expand_path('../lib', __FILE__)
 require 'ants/version'
 
 Gem::Specification.new do |s|
-  s.name        = 'ants'
-  s.version     = Ants::VERSION
-  s.platform    = Gem::Platform::RUBY
-  s.authors     = [ 'Alexander Kravets' ]
-  s.email       = 'alex@slatestudio.com'
-  s.license     = 'MIT'
-  s.homepage    = 'https://github.com/slate-studio/ants'
-  s.summary     = 'Collection of concerns for Rails + Mongoid + Character web development'
-  s.description = <<-DESC
-Collection of concerns and helpers for Rails + Mongoid + Character web development
-  DESC
+  s.name     = 'ants'
+  s.version  = Ants::VERSION
+  s.platform = Gem::Platform::RUBY
+  s.authors  = [ 'Alexander Kravets' ]
+  s.email    = 'alex@slatestudio.com'
+  s.license  = 'MIT'
+  s.homepage = 'https://github.com/slate-studio/ants'
+  s.summary  = 'Collection of concerns and helpers for Rails + Mongoid + Character web development.'
 
   s.rubyforge_project = 'ants'
   s.files             = `git ls-files`.split("\n")
   s.require_paths     = [ 'lib' ]
   s.test_files        = s.files.grep(%r{^(test|spec|features)/})
 
-  s.add_dependency('mongoid',      '>= 4.0'  )
+  s.add_dependency('mongoid', '>= 4.0')
   s.add_dependency('mongoid-slug', '>= 4.0.0')
   s.add_dependency('mongoid-history')
   s.add_dependency('mongoid_search')
   s.add_dependency('devise')
+  s.add_dependency('meta-tags')
 
   s.add_development_dependency('rails',       [ '>= 4.2'   ])
   s.add_development_dependency('bundler', '~> 1.9')

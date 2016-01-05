@@ -17,11 +17,11 @@ class @AntsContent
             type: "string"
             placeholder: "#{@resourceName} Title"
           slug: new AntsSlugInput("#{location.origin}/")
+          body_html:
+            type: "hidden"
           body_markdown:
             type: "markdown"
-            label: "Content"
-            htmlFieldName: "body_html"
-            placeholder: "Content"
+            getHtmlInput: -> chr.module.view.form.inputs.body_html
 
       settings:
         type: "group"
@@ -43,14 +43,22 @@ class @AntsContent
             inputs:
               @_meta_inputs()
 
+    @onNewShow = (view) =>
+      view.form.inputs.title.$input.focus()
+
     @onEditShow = (view) =>
+      view.form.inputs.body_markdown.editor.focus()
       @_update_slug_label(view)
 
     @onSaveSuccess = (view) =>
       @_update_slug_label(view)
       @_update_preview_href(view.form)
 
-# PRIVATE ====================================================================
+    @onViewShow = (view) =>
+      @_toggle_draft_fields(view)
+      @_add_editor_panel(view)
+
+  # PRIVATE ===================================================================
 
   _update_slug_label: (view) ->
     if @_path
@@ -93,6 +101,7 @@ class @AntsContent
       name: '_opengraph_image_url'
       type: 'loft-image'
       label: 'Image'
+      fullsizePreview: true
 
     meta_title:
       name: "_meta_title"
@@ -104,4 +113,44 @@ class @AntsContent
       name: "_meta_description"
       type: "text"
       label: false
-      placeholder: "Description"
+      placeholder: "Content summary"
+
+  _add_editor_panel: (view) ->
+    $editorGroup = view.form.groups[0].$el
+    view.$editorPanel =$ "<div class='group-content-editor-panel'>"
+    $editorGroup.append view.$editorPanel
+    @_add_publish_button(view)
+    @_add_unpublish_button(view)
+
+  _add_publish_button: (view) ->
+    view.$publishBtn =$ "<button class='publish'>Publish</button>"
+    view.$publishBtn.on "click", (e) => @_publish(view)
+    view.$editorPanel.append view.$publishBtn
+
+  _add_unpublish_button: (view) ->
+    view.$unpublishBtn =$ "<button class='unpublish'>Revert to Draft</button>"
+    view.$unpublishBtn.on "click", (e) => @_unpublish(view)
+    view.$editorPanel.append view.$unpublishBtn
+
+  _publish: (view) ->
+    view.form.inputs.hidden.updateValue(false)
+    view.$saveBtn.trigger("click")
+
+  _unpublish: (view) ->
+    view.form.inputs.hidden.updateValue(true)
+    view.$saveBtn.trigger("click")
+
+  _toggle_draft_fields: (view) ->
+    if view.object
+      hide = view.object.hidden
+    else
+      hide = true
+
+    $viewEl = view.$el
+    $hiddenInput = view.form.inputs.hidden.$input
+
+    $hiddenInput.on "change", (e) ->
+      hide = $(e.currentTarget).prop("checked")
+      $viewEl.toggleClass("view-content-draft", hide)
+
+    $viewEl.toggleClass("view-content-draft", hide)
