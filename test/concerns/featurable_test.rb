@@ -11,7 +11,7 @@ class FeaturableTest < ActiveSupport::TestCase
                  "featured book must be 1 instead: #{Book.featured.count}"
     assert_equal 1,
                  Book.not_featured.count,
-                 "not_featured book must be 1 instead: 
+                 "not_featured book must be 1 instead:
                  #{Book.not_featured.count}"
     assert_equal true,
                  featured_book.featured?,
