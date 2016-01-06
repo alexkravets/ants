@@ -5,40 +5,26 @@
 # Rails
 #
 
-require "rails"
-# Pick the frameworks you want:
 require "active_model/railtie"
-# require "active_record/railtie"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "action_view/railtie"
-require "sprockets/railtie"
 require "rails/test_unit/railtie"
 
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
+# Require gems
 Bundler.require(*Rails.groups)
 
 # Define the application and configuration
-module TestApp
-  class Application < Rails::Application
-  end
+class Application < Rails::Application
 end
 
 # Initialize the application
-# Rails.application.initialize!
-TestApp::Application.initialize!
+Rails.application.initialize!
 
 #
 # Mongoid
 #
 
-require "mongoid"
 require "mongoid-history"
-require "mongoid_search"
-
-path_to_mongoid_config = File.join(File.dirname(__FILE__), "mongoid.yml")
-Mongoid.load!(path_to_mongoid_config)
+path_to_config = File.join(File.dirname(__FILE__), "mongoid.yml")
+Mongoid.load!(path_to_config)
 
 #
 # Ants
