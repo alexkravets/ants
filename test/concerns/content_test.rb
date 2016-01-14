@@ -8,13 +8,8 @@ class ContentTest < ActiveSupport::TestCase
 
   test "#canonical_url" do
     book = Book.create(title: "The Art of War")
-    if Rails.env.production?
-      protocole = Rails.application.config.force_ssl ? "https://" : "http://"
-    else
-      protocole = ""
-    end
-    ENV["HOST"] = "localhost"
-    host = (Rails.env.production? ? ENV.fetch("HOST") : "")
+    protocole = ""
+    host = ""
     slug = book.slug
     assert_equal "#{protocole}#{host}/#{slug}",
                  book.canonical_url,

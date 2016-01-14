@@ -29,7 +29,7 @@ class FeaturableTest < ActiveSupport::TestCase
     assert_equal true, book.featured?, "book is not featured sfter set"
   end
 
-  test "unset_featured!" do
+  test "#unset_featured!" do
     book = Book.create(title: "The Art of War", featured: true)
     assert_equal true, book.featured?, "book is not featured before unset"
 
